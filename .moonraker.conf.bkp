@@ -30,8 +30,6 @@ cors_domains =
 [history]
 
 [timelapse]
-output_path = ~/printer_data/timelapse/
-frame_path = /tmp/timelapse/printer
 
 [update_manager]
 channel = dev
@@ -94,4 +92,10 @@ primary_branch = main
 path = ~/moonraker-timelapse
 origin = https://github.com/mainsail-crew/moonraker-timelapse.git
 managed_services = klipper moonraker
+
+[update_manager fluidd]
+path = /home/derek/fluidd
+repo = fluidd-core/fluidd
+channel = stable
+type = web
 
