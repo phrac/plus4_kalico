@@ -26,6 +26,10 @@ cors_domains =
 	*://my.mainsail.xyz
 	*://app.fluidd.xyz
 
+[analysis]
+enable_auto_analysis = true
+enable_estimator_updates = true
+
 [octoprint_compat]
 
 [history]
