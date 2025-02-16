@@ -117,7 +117,7 @@ board instead of having to transfer microSD cards back and forth.
 
 3. Save and quit by pressing `q` then `y` to save
 4. Build klipper by running `make clean; make -j4`
-5. Prepare to flash. Double-click the "RESET" button on the board to load katapult. The button must be pressed twice withing 500ms
+5. Prepare to flash. Double-click the "RESET" button on the board to load katapult. The button must be pressed twice within 500ms.
 6. Flash via katapult by doing the following:
     ```
     cd ~/katapult/scripts
