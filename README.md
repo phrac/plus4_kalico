@@ -43,16 +43,16 @@ board instead of having to transfer microSD cards back and forth.
 
 1. SSH into your printer
 2. Download Katapult and configure for the main board:
-  ```
-  cd ~/
-  git clone https://github.com/Arksine/katapult
-  cd katapult
-  make menuconfig
-  ```
-  Once you are in make menuconfig, you want to build katapult with the following options:
-  ![image](images/katapult_mainmcu.png)
+    ```
+    cd ~/
+    git clone https://github.com/Arksine/katapult
+    cd katapult
+    make menuconfig
+    ```
+    Once you are in `make menuconfig`, you want to build katapult with the following options:
+    ![image](images/katapult_mainmcu.png)
 
-  After you are sure your menuconfig matches the above settings, you can quit menuconfig (press q then y to save)
+    After you are sure your menuconfig matches the above settings, you can quit menuconfig (press q then y to save)
 3. run `make -j4` to build katapult
 4. Copy `~/katapult/out/katapult.bin` to your computer via your favorite method (scp, sftp, or using the fluidd interface)
 5. On your computer, format the microSD card as FAT32
