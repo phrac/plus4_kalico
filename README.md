@@ -112,12 +112,13 @@ board instead of having to transfer microSD cards back and forth.
 
 1. SSH into your printer
 2. Execute the following to build Klipper
-  ```
-  cd ~/klipper
-  make menuconfig
-  ```
-  Configure the make arguments in `menuconfig` to match these settings:
-  ![image](images/klipper_mainmcu.png)
+    ```
+    cd ~/klipper
+    make menuconfig
+    ```
+    Configure the make arguments in `menuconfig` to match these settings:
+    ![image](images/klipper_mainmcu.png)
+
 3. Save and quit by pressing `q` then `y` to save
 4. Build klipper by running `make clean; make -j4`
 5. Prepare to flash. Double-click the "RESET" button on the board to load katapult. The button must be pressed twice withing 500ms
