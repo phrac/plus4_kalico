@@ -1,6 +1,6 @@
 # Qidi Plus 4 Mainline (vanilla) Klipper/Kalico Guide
 
-# ![image](images/warning.gif) DANGER - WARNING !!!
+# ![image](images/warning.gif) !!! DANGER - WARNING !!! ![image](images/warning.gif)
 This is a work in progress. Do not use any of these configs or instructions unless you know what you're doing!
 These modifications are for experienced users. If you are not comfortable with a command line, linux, and electronics, please stop here!
 
@@ -133,8 +133,18 @@ The toolhead takes quite a bit more work to flash. You will need to solder some 
 The official ST-LINK programmer is what I used. You can purchase one from Digikey (or any other source). [This is the one I used](https://www.digikey.com/en/products/detail/stmicroelectronics/ST-LINK-V2/2214535)
 
 ## Preparing the toolhead
+Begin by unsliding the back cover of the toolhead, disconnecting all connectors, and unscrewing the board from the toolhead.
+
+Next, you need to solder a 6 pin header on the board like the below image:
+![image](images/toolhead_with_pins.jpeg)
+
+Once the header is soldered, we need to wire it to the ST-LINK:
+![image](images/stlink-wiring.jpeg)
+Use the following wiring diagram
+![image](images/wiring-diagram.png)
 
 
 ---
-## Other References
-https://github.com/cgarwood82/plus4MainlineKlipperConfig/tree/main
+## Other References and Resources
+- references from @transmutated - most likely the first person to flash the toolhead successfully: https://github.com/cgarwood82/plus4MainlineKlipperConfig/tree/main
+- Open Q1 repo - the Q1 Pro uses the same main board as the plus4: https://github.com/frap129/OpenQ1/tree/main
