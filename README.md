@@ -24,7 +24,22 @@ As of this writing, the file is `Armbian-unofficial_24.2.0_Qidi-q1_bookworm_curr
         * FR_net_wifi_enabled=1
         * FR_net_wifi_ssid='MySSID'
         * FR_net_wifi_key='MyWiFiKEY'
-4. Unmount the eMMC card and re-install it into your printer.
+4. Unmount the eMMC card and re-install it into your printer and power on. If everything worked, you should now be able to access your printer via SSH.
+5. SSH into your printer. The default username/password is `mks`. You will be asked to change your password on first login
+
+#### Disable debug console
+By default, the Plus4 uses `/dev/ttyS2` to communicate with the toolhead. The fresh armbian image you just flashed uses `/dev/ttyS2` as a
+kernel debug console, so we need to disable that:
+```
+echo 'console=none' > sudo tee -a /boot/armbianEnv.txt
+
+# Grant user permissions and prevent getty from taking over the port
+echo 'KERNEL=="ttyS2",MODE="0660"' > /etc/udev/rules.d/99-ttyS2.rules
+systemctl mask serial-getty@ttyS2.service
+```
+For more information on these changes, see here: https://github.com/frap129/armbian_qidi-q1-pro#disable-debug-console-uart2--or-freeup-uart1-interface
+
+## Changes
 
 ## Flashing the main MCU
 Pick your poison - the easier way is to just install klipper. The other option is to install katapult to make flashing Klipper slightly easier in the future.
