@@ -143,6 +143,20 @@ Once the header is soldered, we need to wire it to the ST-LINK:
 Use the following wiring diagram
 ![image](images/wiring-diagram.png)
 
+```
+This image courtesy @transmutated
++-------- J1 6-Pin Connector --------+            +---------- STLink V2 20-Pin Connector -----------+
+|                                    |            |                                                 |
+| Pin 1: DIO   ----------------------|------------| Pin 7: SWDIO / TMS7                             |
+| Pin 3: CLK   ----------------------|------------| Pin 9: SWCLK / TCK9                             |
+| Pin 5: RST   ----------------------|------------| Pin 15: MCU RST                                 |
+| Pin 6: GND   ----------------------|------------| Pin 12: GND                                     |
+| Pin 4: GND                         |            |                                                 |
+| Pin 2: 3V3   ----------------------|---+--------| Pin 1: VDD                                      |
+|                                    |   |        |                                                 |
+|                                    |   |--------| Pin 19: VDD                                     |
++------------------------------------+            +-------------------------------------------------+
+```
 
 ---
 ## Other References and Resources
