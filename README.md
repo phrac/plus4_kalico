@@ -1,29 +1,35 @@
 # Qidi Plus 4 Mainline (vanilla) Klipper/Kalico Guide
 
-# DANGER - WARNING !!! This is a work in progress. Do not use any of these configs or instructions unless you know what you're doing!
-# THIS IS A WORK IN PROGRESS!
+# ![image](images/warning.gif) DANGER - WARNING !!!
+This is a work in progress. Do not use any of these configs or instructions unless you know what you're doing!
+These modifications are for experienced users. If you are not comfortable with a command line, linux, and electronics, please stop here!
 
 ## Introduction
 Flashing mainline klipper/kalico on the Qidi Plus4 is relatively easy but does require some effort to flash the toolhead board. You will need an ST-Link programmer or clone to flash the toolhead.
 
-## Flashing the host with updatedArmbian
+## Backup
+Before proceeding, backup any and all data in your printer configs, particularly your `printer.cfg`, `gcode_macros.cfg` and any other files
+you may want to save. This can be done via the fluidd interface.
+
+## Flashing the host with an updated Armbian image
 ### Tools required:
 * USB EMMC reader such as [this one](https://www.amazon.com/Vacatga-Adapter-EMMC-Adapter-52-6x16x10mm-2-07x0-63x0-39in/dp/B0D1MY7943?gQT=1)
+* A spare eMMC card (optional but recommended) if you want to preserve the original stock card
 
 ### Flashing Steps
-1. Remove the eMMC card from the printer motherboard. It is held down with 2 screws
+1. Power down your printer and remove the eMMC card from the printer motherboard. It is held down with 2 screws.
 2. Download the latest armbian image from [here](https://github.com/frap129/armbian_qidi-q1-pro/releases).
 As of this writing, the file is `Armbian-unofficial_24.2.0_Qidi-q1_bookworm_current_6.6.34.img.xz`
 3. Write the image to your eMMC card via your preferred method (Balena Etcher, dd, etc)
 
     #### If you need wireless networking
-    1. After writing the image to your eMMC card, open your file manager and open the armbi_boot drive.
-    2. Rename the file armbian_first_run.txt.template to armbian_first_run.txt
+    1. After writing the image to your eMMC card, open your file manager and open the `armbi_boot` drive.
+    2. Rename the file `armbian_first_run.txt.template` to `armbian_first_run.txt`
     3. Open the file in a text editor, and add the SSID and Password for your wifi network. Find the line for enabling wifi and change 0 to 1.
-        * FR_net_change_defaults=1
-        * FR_net_wifi_enabled=1
-        * FR_net_wifi_ssid='MySSID'
-        * FR_net_wifi_key='MyWiFiKEY'
+        * `FR_net_change_defaults=1`
+        * `FR_net_wifi_enabled=1`
+        * `FR_net_wifi_ssid='MySSID'`
+        * `FR_net_wifi_key='MyWiFiKEY'`
 4. Unmount the eMMC card and re-install it into your printer and power on. If everything worked, you should now be able to access your printer via SSH.
 5. SSH into your printer. The default username/password is `mks`. You will be asked to change your password on first login
 
@@ -39,7 +45,7 @@ systemctl mask serial-getty@ttyS2.service
 ```
 For more information on these changes, see here: https://github.com/frap129/armbian_qidi-q1-pro#disable-debug-console-uart2--or-freeup-uart1-interface
 
-## Changes
+## Installing klipper/moonraker/fluidd and friends
 
 ## Flashing the main MCU
 Pick your poison - the easier way is to just install klipper. The other option is to install katapult to make flashing Klipper slightly easier in the future.
