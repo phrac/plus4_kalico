@@ -32,6 +32,12 @@ As of this writing, the file is `Armbian-unofficial_24.2.0_Qidi-q1_bookworm_curr
         * `FR_net_wifi_key='MyWiFiKEY'`
 4. Unmount the eMMC card and re-install it into your printer and power on. If everything worked, you should now be able to access your printer via SSH.
 5. SSH into your printer. The default username/password is `mks`. You will be asked to change your password on first login
+6. Install updates
+    Lets make sure our system is up-to-date with the latest software. Note that this should NOT change your kernel.
+    ```
+    sudo apt update && sudo apt upgrade
+    sudo apt install git -y
+    ```
 
 #### Disable debug console
 By default, the Plus4 uses `/dev/ttyS2` to communicate with the toolhead. The fresh armbian image you just flashed uses `/dev/ttyS2` as a
@@ -45,7 +51,29 @@ systemctl mask serial-getty@ttyS2.service
 ```
 For more information on these changes, see here: https://github.com/frap129/armbian_qidi-q1-pro#disable-debug-console-uart2--or-freeup-uart1-interface
 
-## Installing klipper/moonraker/fluidd and friends
+## Installing klipper/kalico, moonraker, fluidd/mainsail and friends
+Now that we have a clean, fresh system, we can start installing the software needed to run the printer. If you want to do this manually, you certainly can.
+For everyone else, I recommend installing KIAUH
+### Installing KIAUH
+KIAUH is a helper script to install klipper/kalico, mainsail, fluidd, crowsnest, moonraker, and many other things you may need or want.
+The following steps will get KIAUH installed:
+```
+  cd ~
+  git clone https://github.com/dw-0/kiauh.git
+  ./kiauh/kiauh.sh
+```
+You will now be entered into the KIAUH main menu where you can install the software needed. At a minium install
+* Klipper (or Kalico)
+* moonraker
+* fluidd (or mainsail)
+
+KIAUH should automatically install all the required modules and start the services for you.
+
+After everything is installed, we can move our backed up configurations over to the new setup:
+Copy your `printer.cfg` and `gcode_macros` to `~/printer_data/config`
+
+
+
 
 ## Flashing the main MCU
 Pick your poison - the easier way is to just install klipper. The other option is to install katapult to make flashing Klipper slightly easier in the future.
