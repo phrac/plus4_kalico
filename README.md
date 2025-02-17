@@ -167,11 +167,13 @@ I used the printer itself to flash the toolhead but you can use any other comput
 3. Check that your ST-Link is recognized (and recognizing the toolhead): `st-info --probe`. You should see output similar to this:
 
   ![image](images/st-info.png)
+
 4. Next, we need to build katapult for the toolhead:
     ```
     cd ~/katapult
     make menuconfig
     ```
+
     Make sure your menuconfig matches this:
 
     ![image](images/katapult-toolhead.png)
@@ -180,7 +182,9 @@ I used the printer itself to flash the toolhead but you can use any other comput
     make clean
     make -j4
     ```
+
 5. Now we can flash katapult via the ST-Link:
+
     ```
     st-flash write ~/katapult/out/katapult.bin 0x8000000
     ```
