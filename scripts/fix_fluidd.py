@@ -14,7 +14,7 @@ def delete_unauthorized_users(db_path):
         
         # SQL query to delete rows where username is not '_API_KEY_USER_'
         sql_query = """
-            DELETE FROM authorized_users WHERE username != '_API_KEY_USER_';
+            DELETE FROM authorized_users;
         """
         
         # Execute the query
