@@ -159,12 +159,13 @@ This ASCII diagram is courtesy @transmutated
 +------------------------------------+            +---------------------------------------+
 ```
 
-## Flashing Katapult
+## Flashing Katapult on the toolhead
 I used the printer itself to flash the toolhead but you can use any other computer available to build and flash.
 
 1. Plug your ST-Link into the top usb port of the printer
 2. Install the ST-Link tools: `sudo apt install stlink-tools`
 3. Check that your ST-Link is recognized (and recognizing the toolhead): `st-info --probe`. You should see output similar to this:
+
   ![image](images/st-info.png)
 4. Next, we need to build katapult for the toolhead:
     ```
@@ -172,6 +173,7 @@ I used the printer itself to flash the toolhead but you can use any other comput
     make menuconfig
     ```
     Make sure your menuconfig matches this:
+
     ![image](images/katapult-toolhead.png)
 
     ```
@@ -184,11 +186,40 @@ I used the printer itself to flash the toolhead but you can use any other comput
     ```
 
     You should see a message like this:
+
     ![image](images/st-flash.png)
 
+6. Unhook your ST-Link, and put the toolhead board back into the printer. Reconnect all wires and reboot the printer.
 
+## Flashing Klipper on the toolhead
+This is the same basic process that we used to flash klipper on the main MCU
+1. Build klipper
+    ```
+    cd ~/klipper
+    make menuconfig
+    ```
+    Your menuconfig should match this for the toolhead:
+
+    ![image](images/klipper-toolhead.png)
+
+    ```
+    make clean
+    make -j4
+    ```
+2. Double click the reset button on the toolhead within 500ms to enter Katapult
+3. Flash klipper:
+    ```
+    cd ~/katapult/scripts
+    python3 flashtool.py -b 500000 -d /dev/ttyS2 -f ~/klipper/out/klipper.bin
+    ```
+    You should see a successful flash like this:
+
+    ![image](images/flash_success-toolhead.png)
+4. Reboot the printer and you're done - you can now start configuring!
+
+# Configuring the newly flashed printer
 
 ---
-## Other References and Resources
+# Other References and Resources
 - references from @transmutated - most likely the first person to flash the toolhead successfully: https://github.com/cgarwood82/plus4MainlineKlipperConfig/tree/main
 - Open Q1 repo - the Q1 Pro uses the same main board as the plus4: https://github.com/frap129/OpenQ1/tree/main
