@@ -168,7 +168,8 @@ I used the printer itself to flash the toolhead but you can use any other comput
 
   ![image](images/st-info.png)
 
-  Note that your output might not match exactly. What you are looking for is that it found an stlink programmer, and it detects a chip (above we see `chipid: 0x0423` and `descr: F4xx`)
+  Note that your output might not match exactly. What you are looking for is that it found an stlink programmer, and it detects a chip (above we see `chipid: 0x0423` and `descr: F4xx`).
+  If you don't see these things, double check your wiring.
 
 4. Next, we need to build katapult for the toolhead:
     ```
