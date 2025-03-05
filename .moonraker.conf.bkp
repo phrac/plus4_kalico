@@ -29,6 +29,7 @@ cors_domains =
 [analysis]
 enable_auto_analysis = true
 enable_estimator_updates = true
+auto_dump_default_config = true
 
 [octoprint_compat]
 
