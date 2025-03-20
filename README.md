@@ -108,7 +108,11 @@ board instead of having to transfer microSD cards back and forth.
 ## Flashing Klipper on the main MCU
 
 1. SSH into your printer
-2. Execute the following to build Klipper
+2. Install the `pyserial` Python package. This package is needed to run the katapult flashtool script.
+   ```
+   python -m pip install pyserial
+   ```
+4. Execute the following to build Klipper
     ```
     cd ~/klipper
     make menuconfig
@@ -116,10 +120,10 @@ board instead of having to transfer microSD cards back and forth.
     Configure the make arguments in `menuconfig` to match these settings:
     ![image](images/klipper_mainmcu.png)
 
-3. Save and quit by pressing `q` then `y` to save
-4. Build klipper by running `make clean; make -j4`
-5. Prepare to flash. Double-click the "RESET" button on the board to load katapult. The button must be pressed twice within 500ms.
-6. Flash via katapult by doing the following:
+5. Save and quit by pressing `q` then `y` to save
+6. Build klipper by running `make clean; make -j4`
+7. Prepare to flash. Double-click the "RESET" button on the board to load katapult. The button must be pressed twice within 500ms.
+8. Flash via katapult by doing the following:
     ```
     cd ~/katapult/scripts
     python3 flashtool.py -b 500000 -d /dev/ttyS0 -f ~/klipper/out/klipper.bin
@@ -127,7 +131,7 @@ board instead of having to transfer microSD cards back and forth.
     You should see output similar to the following if the flash worked:
     ![image](images/flash_success-mainmcu.png)
 
-7. Klipper is now flashed to the main MCU. We can now move on to the toolhead.
+9. Klipper is now flashed to the main MCU. We can now move on to the toolhead.
 
 # Flashing the toolhead
 The toolhead takes quite a bit more work to flash. You will need to solder some pins on the board and you will also need an ST-Link programmer (or clone).
