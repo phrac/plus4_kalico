@@ -19,8 +19,9 @@ you may want to save. This can be done via the fluidd interface.
 
 ## Flashing Steps
 1. Power down your printer and remove the eMMC card from the printer motherboard. It is held down with 2 screws.
-2. Download the latest armbian image from [here](https://github.com/frap129/armbian_qidi-q1-pro/releases).
-As of this writing, the file is `Armbian-unofficial_24.2.0_Qidi-q1_bookworm_current_6.6.34.img.xz`
+2. Download one of the following images:
+   - An older Q1 Pro image with KIAUH and Klipper preinstalled (https://github.com/frap129/armbian_qidi-q1-pro/releases).
+   - A newer image with nothing preinstalled (https://github.com/redrathnure/armbian-mkspi/releases/download/mkspi%2F1.0.2-25.2.1/Armbian-unofficial_25.2.1_Mkspi_bookworm_current_6.12.12.img.xz)
 3. Write the image to your eMMC card via your preferred method (Balena Etcher, dd, etc)
 
     ### If you need wireless networking
