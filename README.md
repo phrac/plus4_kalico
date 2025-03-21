@@ -54,8 +54,9 @@ systemctl mask serial-getty@ttyS2.service
 For more information on these changes, see here: https://github.com/frap129/armbian_qidi-q1-pro#disable-debug-console-uart2--or-freeup-uart1-interface
 
 ## Installing klipper/kalico, moonraker, fluidd/mainsail and friends
+**NOTE THAT IF YOU INSTALLED THE Q1PRO IMAGE FROM ABOVE, YOU CAN SKIP THESE STEPS AS KLIPPER AND FRIENDS ARE ALREADY INSTALLED. CONTINUE ON TO MAINBOARD FLASHING**
 Now that we have a clean, fresh system, we can start installing the software needed to run the printer. If you want to do this manually, you certainly can.
-For everyone else, I recommend installing KIAUH
+For everyone else, I recommend installing KIAUH.
 ## Installing KIAUH
 KIAUH is a helper script to install klipper/kalico, mainsail, fluidd, crowsnest, moonraker, and many other things you may need or want.
 The following steps will get KIAUH installed:
@@ -77,12 +78,9 @@ Copy your `printer.cfg` and `gcode_macros` to `~/printer_data/config`
 # Flashing the main MCU
 Pick your poison - the easier way is to just install klipper. The other option is to install katapult to make flashing Klipper slightly easier in the future.
 
-## If you want Katapult and Klipper
-
-This method installs katapult. With katapult, future flashes of klipper or kalico will only require double clicking the reset button on the
-board instead of having to transfer microSD cards back and forth.
-
-## Flashing Katapult
+## Flashing Katapult Deployer
+These steps will build the Katapult deployer application. Make sure that you already have your ST-LINK programmer (or clone) on hand. If something goes wrong,
+you will have to recover with the programmer. [Further details of Katapult deployer can be found here.](https://github.com/Arksine/katapult?tab=readme-ov-file#katapult-deployer)
 
 1. SSH into your printer
 2. Download Katapult and configure for the main board:
@@ -97,12 +95,13 @@ board instead of having to transfer microSD cards back and forth.
 
     After you are sure your menuconfig matches the above settings, you can quit menuconfig (press q then y to save)
 3. run `make -j4` to build katapult
-4. Copy `~/katapult/out/katapult.bin` to your computer via your favorite method (scp, sftp, or using the fluidd interface)
+4. Copy `~/katapult/out/deployer.bin` to your computer via your favorite method (scp, sftp, or using the fluidd interface)
 5. On your computer, format the microSD card as FAT32
-6. Copy the `katapult.bin` file to the microSD card and rename it `qd_mcu.bin`
+6. Copy the `deployer.bin` file to the microSD card and rename it `qd_mcu.bin`
 7. Eject the microSD card and plug it into the microSD card slot on the printer.
 8. Once the card is inserted, find the button labeled "RESET" on the main board and press it
 9. Wait 30-60 seconds
+    - You can verify that the flash worked by checking the file on the microSD card - it should be renamed to `qd_mcu.CUR`
 10. Eject the microSD card. Katapult should now be flashed to the main MCU.
 
 ## Flashing Klipper on the main MCU
