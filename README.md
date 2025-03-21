@@ -55,6 +55,7 @@ For more information on these changes, see here: https://github.com/frap129/armb
 
 ## Installing klipper/kalico, moonraker, fluidd/mainsail and friends
 **NOTE THAT IF YOU INSTALLED THE Q1PRO IMAGE FROM ABOVE, YOU CAN SKIP THESE STEPS AS KLIPPER AND FRIENDS ARE ALREADY INSTALLED. CONTINUE ON TO MAINBOARD FLASHING**
+
 Now that we have a clean, fresh system, we can start installing the software needed to run the printer. If you want to do this manually, you certainly can.
 For everyone else, I recommend installing KIAUH.
 ## Installing KIAUH
@@ -76,7 +77,6 @@ After everything is installed, we can move our backed up configurations over to 
 Copy your `printer.cfg` and `gcode_macros` to `~/printer_data/config`
 
 # Flashing the main MCU
-Pick your poison - the easier way is to just install klipper. The other option is to install katapult to make flashing Klipper slightly easier in the future.
 
 ## Flashing Katapult Deployer
 These steps will build the Katapult deployer application. Make sure that you already have your ST-LINK programmer (or clone) on hand. If something goes wrong,
