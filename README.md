@@ -8,6 +8,8 @@ These modifications are for experienced users. If you are not comfortable with a
 
 You could move to a Klipper screen setup to get a functioning screen. You could also check out [FreeDI](https://github.com/Phil1988/FreeDi) but it is not yet available for the Plus4.
 
+---
+
 # Introduction
 Flashing mainline klipper/kalico on the Qidi Plus4 is relatively easy but does require some effort to flash the toolhead board. You will need an ST-Link programmer or clone to flash the toolhead.
 
@@ -15,6 +17,7 @@ Flashing mainline klipper/kalico on the Qidi Plus4 is relatively easy but does r
 Before proceeding, backup any and all data in your printer configs, particularly your `printer.cfg`, `gcode_macros.cfg` and any other files
 you may want to save. This can be done via the fluidd interface.
 
+---
 
 # Flashing the host with an updated Armbian image
 ## Tools required:
@@ -57,6 +60,8 @@ systemctl mask serial-getty@ttyS2.service
 ```
 For more information on these changes, see here: https://github.com/frap129/armbian_qidi-q1-pro#disable-debug-console-uart2--or-freeup-uart1-interface
 
+---
+
 ## Installing klipper/kalico, moonraker, fluidd/mainsail and friends
 **NOTE THAT IF YOU INSTALLED THE Q1PRO IMAGE FROM ABOVE, YOU CAN SKIP THESE STEPS AS KLIPPER AND FRIENDS ARE ALREADY INSTALLED. CONTINUE ON TO MAINBOARD FLASHING**
 
@@ -79,6 +84,8 @@ KIAUH should automatically install all the required modules and start the servic
 
 After everything is installed, we can move our backed up configurations over to the new setup:
 Copy your `printer.cfg` and `gcode_macros` to `~/printer_data/config`
+
+---
 
 # Flashing the main MCU
 
@@ -135,6 +142,8 @@ you will have to recover with the programmer. [Further details of Katapult deplo
     ![image](images/flash_success-mainmcu.png)
 
 9. Klipper is now flashed to the main MCU. We can now move on to the toolhead.
+
+---
 
 # Flashing the toolhead
 The toolhead takes quite a bit more work to flash. You will need to solder some pins on the board and you will also need an ST-Link programmer (or clone).
