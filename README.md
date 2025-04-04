@@ -3,7 +3,10 @@
 # ![image](images/warning.gif) !!! DANGER - WARNING !!! ![image](images/warning.gif)
 This is a work in progress. Do not use any of these configs or instructions unless you know what you're doing!
 These modifications are for experienced users. If you are not comfortable with a command line, linux, and electronics, please stop here!
-** ALSO NOTE: YOUR SCREEN WILL NOT WORK AFTER FOLLOWING THESE STEPS** You could move to a Klipper screen setup to get a functioning screen. You could also check out [FreeDI](https://github.com/Phil1988/FreeDi) but it is not yet available for the Plus4.
+
+** ALSO NOTE: YOUR SCREEN WILL NOT WORK AFTER FOLLOWING THESE STEPS**
+
+You could move to a Klipper screen setup to get a functioning screen. You could also check out [FreeDI](https://github.com/Phil1988/FreeDi) but it is not yet available for the Plus4.
 
 # Introduction
 Flashing mainline klipper/kalico on the Qidi Plus4 is relatively easy but does require some effort to flash the toolhead board. You will need an ST-Link programmer or clone to flash the toolhead.
