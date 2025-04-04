@@ -29,6 +29,7 @@ you may want to save. This can be done via the fluidd interface.
 2. Download one of the following images:
    - An older Q1 Pro image with KIAUH and Klipper preinstalled (https://github.com/frap129/armbian_qidi-q1-pro/releases).
    - A newer image with nothing preinstalled (https://github.com/redrathnure/armbian-mkspi/releases/download/mkspi%2F1.0.2-25.2.1/Armbian-unofficial_25.2.1_Mkspi_bookworm_current_6.12.12.img.xz)
+
    **Please Note: Many people have had problems getting the clean version to boot. This issues is being investigated. If your version doesn't boot, please try the Q1 Pro image.**
 3. Write the image to your eMMC card via your preferred method (Balena Etcher, dd, etc)
 
