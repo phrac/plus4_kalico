@@ -42,7 +42,9 @@ you may want to save. This can be done via the fluidd interface.
         * `FR_net_wifi_ssid='MySSID'`
         * `FR_net_wifi_key='MyWiFiKEY'`
 4. Unmount the eMMC card and re-install it into your printer and power on. If everything worked, you should now be able to access your printer via SSH.
-5. SSH into your printer. The default username/password is `mks`. You will be asked to change your password on first login
+5. SSH into your printer.
+* If you're using the Q1 Image, the default username/password is `mks`. You will be asked to change your password on first login.
+* If you're using the clean image, the default username is `root` and the password is `1234`
 6. Install updates
     Lets make sure our system is up-to-date with the latest software. Note that this should NOT change your kernel.
     ```
