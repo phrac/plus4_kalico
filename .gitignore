@@ -3,4 +3,5 @@ KAMP/
 ShakeTune_results/
 config_backups/
 .DS_Store
+*.bkp
 
